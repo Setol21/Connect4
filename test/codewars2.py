@@ -13,13 +13,31 @@ class Connect4():
             self.player=1
 
     def check(self):
-        if (4 in np.count_nonzero(self.table==self.player,axis=1)) or \
-            (4 in np.count_nonzero(self.table==self.player,axis=0)):
-            self.keep_playing=False
-            self.winner=self.player
-        else:
-            # for i in range(3,)
-            pass
+        for i in self.table:
+            sum=0
+            for k in i:
+                if k==self.player:
+                    sum+=1
+                elif sum==4:
+                    self.keep_playing=False
+                    self.winner=self.player
+                    return self
+        for i in self.table.T:
+            sum=0
+            for k in i:
+                if k==self.player:
+                    sum+=1
+                elif sum==4:
+                    self.keep_playing=False
+                    self.winner=self.player
+                    return self
+            # for i in range(3,len(self.table[0])):
+            #     sum=0
+            #     for k in range(0,4):
+            #         sum+=self.table[i][k]
+            #     if sum==self.player*4:
+            #         self.keep_playing=False
+            #         self.winner=self.player
     
     def play(self, col_place):
         if self.keep_playing==False:
@@ -34,12 +52,12 @@ class Connect4():
                             self.table[col_place][i]=self.player
                             self.check()
                             self.change_player()
-                            return 
+                            return self
                     except IndexError:
                         self.table[col_place][i]=self.player
                         self.check()
                         self.change_player()
-                        return 
+                        return self
     def show(self):
         print(self.table.T)
 
@@ -55,8 +73,12 @@ game.play(1)
 game.play(1)
 game.play(2)
 game.play(2)
-game.play(3) # Gana P2
-print(game.play(1))
+game.play(0) # Gana P2
+game.play(3)
+game.play(6)
+game.play(3)
+print(game.play(4))
+# print(game.play(1))
 
 
 game.show()
