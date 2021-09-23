@@ -18,7 +18,7 @@ class Connect4():
             for k in i:
                 if k==self.player:
                     sum+=1
-                elif sum==4:
+                if sum==4:
                     self.keep_playing=False
                     self.winner=self.player
                     return self
@@ -27,7 +27,7 @@ class Connect4():
             for k in i:
                 if k==self.player:
                     sum+=1
-                elif sum==4:
+                if sum==4:
                     self.keep_playing=False
                     self.winner=self.player
                     return self
@@ -62,23 +62,31 @@ class Connect4():
         print(self.table.T)
 
 game=Connect4()
+# game.play(0)
+# game.play(1)
+# game.play(2)
+# game.play(3)
+# game.play(4)
+# game.play(0)
+# game.play(0)
+# game.play(1)
+# game.play(1)
+# game.play(2)
+# game.play(2)
+# game.play(0) # Gana P2
+# game.play(3)
+# game.play(6)
+# game.play(3)
+# print(game.play(4))
+# # print(game.play(1))
 game.play(0)
 game.play(1)
-game.play(2)
-game.play(3)
-game.play(4)
-game.play(0)
 game.play(0)
 game.play(1)
+game.play(0)
 game.play(1)
-game.play(2)
-game.play(2)
-game.play(0) # Gana P2
-game.play(3)
-game.play(6)
-game.play(3)
-print(game.play(4))
-# print(game.play(1))
+game.play(0)
+print(game.play(2))
 
 
 game.show()
